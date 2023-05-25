@@ -1,0 +1,16 @@
+<div>
+  <h1>Movie Details</h1>
+  <h2>{{ movie.title }} - <a href="{{ movie.url }}"><span style="text-transform: uppercase">{{ movie.imdb }}</span></a></h2>
+  <h3>Directors</h3>
+  <ul>
+    {% for director in directors %}
+    <li>{{ director.name }}</li>
+    {% endfor %}
+  </ul>
+  <h3>Genres</h3>
+  <ul>
+    {% for genre in genres %}
+    <li>{{ genre.name }}</li>
+    {% endfor %}
+  </ul>
+</div>

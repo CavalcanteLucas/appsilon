@@ -1,0 +1,43 @@
+<div>
+  <h1>{{ config.get('TITLE') }}</h1>
+
+  <div>
+    <h2>Movies</h2>
+    <ul>
+      {% for movie in movies %}
+      <li>
+        <a href="{{ url_for('views.movie_details', movie_id=movie.id) }}"
+          >{{ movie.title }}</a
+        >
+      </li>
+      {% endfor %}
+    </ul>
+
+    <h2>Directors</h2>
+    <ul>
+      {% for director in directors %}
+      <li>
+        <span>
+          <a
+            href="{{ url_for('views.movies_by_director', director_id=director.id) }}"
+            >{{ director.name }}</a
+          >
+        </span>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <h2>Genres</h2>
+    <ul>
+      {% for genre in genres %}
+      <li>
+        <span>
+          <a href="{{ url_for('views.movies_by_genre', genre_id=genre.id) }}"
+            >{{ genre.name }}</a
+          >
+        </span>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

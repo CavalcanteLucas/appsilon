@@ -1,0 +1,9 @@
+<div>
+  <h1>Movies by Director</h1>
+  <h2>{{ director.name }}</h2>
+  <ul>
+    {% for movie in movies %}
+    <li>{{ movie.title }}</li>
+    {% endfor %}
+  </ul>
+</div>
