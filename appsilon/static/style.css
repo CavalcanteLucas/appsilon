@@ -1,0 +1,30 @@
+html {
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
+}
+
+body {
+  background-color: aliceblue !important;
+}
+
+nav {
+  display: flex;
+  justify-content: center
+}
+
+.genre-title {
+  text-transform: capitalize;
+}
+
+.container-box {
+  background-color: white;
+  margin: 3rem;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.title-box {
+  margin: 3rem;
+  padding: 1rem;
+}
