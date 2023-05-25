@@ -11,3 +11,6 @@ build-db:
 	make -s drop-db
 	make -s create-db
 	make -s populate-db
+
+run:
+	flask run
