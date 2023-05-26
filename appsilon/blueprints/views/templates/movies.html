@@ -1,17 +1,21 @@
 {% extends 'base.html' %} {% block title %}{{ config.get('TITLE') }}{% endblock %} {% block content %}
 
 <div class="container-box">
-  <h1>Movies</h1>
-  <ul>
-    {% for movie in movies %}
-    <p>
-      <span class="star-bullet">&#9733;</span>
-      <a href="{{ url_for('views.movie_details', movie_id=movie.id) }}"
-        >{{ movie.title }}</a
-      >
-    </p>
-    {% endfor %}
-  </ul>
+  <div class="box-content">
+    <h1>Movies</h1>
+    <ul>
+      {% for movie in movies %}
+      <p>
+        <span class="star-bullet">&#9733;</span>
+        <a href="{{ url_for('views.movie_details', movie_id=movie.id) }}"
+          >{{ movie.title }} ({{ movie.year }})</a
+        >
+      </p>
+      {% endfor %}
+    </ul>
+  </div>
+
+  {% include 'pagination.html' %}
 </div>
 
 {% endblock %}

@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, request
 
 from appsilon.ext.assets.transactions import (
     get_movies,
@@ -15,31 +15,38 @@ from appsilon.ext.assets.transactions import (
 
 
 def index():
-    context = {
-        "movies": get_movies(),
-        "directors": get_directors(),
-        "genres": get_genres(),
-    }
-    return render_template("index.html", **context)
+    return render_template("index.html")
 
 
 def movies():
+    page = int(request.args.get("page", 1))
+    per_page = int(request.args.get("per_page", 10))
+    movies = get_movies(page=page, per_page=per_page)
     context = {
-        "movies": get_movies(),
+        "movies": movies.items,
+        "pagination": movies,
     }
     return render_template("movies.html", **context)
 
 
 def directors():
+    page = int(request.args.get("page", 1))
+    per_page = int(request.args.get("per_page", 10))
+    directors = get_directors(page=page, per_page=per_page)
     context = {
-        "directors": get_directors(),
+        "directors": directors.items,
+        "pagination": directors,
     }
     return render_template("directors.html", **context)
 
 
 def genres():
+    page = int(request.args.get("page", 1))
+    per_page = int(request.args.get("per_page", 10))
+    genres = get_genres(page=page, per_page=per_page)
     context = {
-        "genres": get_genres(),
+        "genres": genres.items,
+        "pagination": genres,
     }
     return render_template("genres.html", **context)
 

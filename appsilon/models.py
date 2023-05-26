@@ -41,6 +41,7 @@ class Movie(db.Model):
     url = db.Column(db.String(255), nullable=False)
     imdb = db.Column(db.String(255), nullable=False)
     title = db.Column(db.String(255), nullable=False)
+    year = db.Column(db.Integer, nullable=False)
 
     directors = db.relationship(
         "Director",
@@ -56,7 +57,7 @@ class Movie(db.Model):
     )
 
     def __repr__(self):
-        return f"<Movie(id={self.id}, url={self.url}, imdb={self.imdb}, title={self.title})>"
+        return f"<Movie(id={self.id}, year={self.year}, url={self.url}, imdb={self.imdb}, title={self.title})>"
 
 
 class Director(db.Model):
