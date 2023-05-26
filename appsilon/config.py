@@ -2,6 +2,7 @@ import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
+
 class Config:
     SQLALCHEMY_DATABASE_URI = "postgresql://appsilon_user:dale@localhost:5432/appsilon_db"
     TITLE = "Appsilon"

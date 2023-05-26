@@ -1,57 +1,11 @@
-{% extends 'base.html' %} {% block title %}{{ config.get('TITLE') }}{% endblock
-%} {% block content %}
+{% extends 'base.html' %} {% block title %}{{ config.get('TITLE') }}{% endblock %} {% block content %}
 
-<div>
-  <h1 class="title-box">{{ config.get('TITLE') }}</h1>
-
-  <div>
-    <div class="container-box">
-      <h2>Movies</h2>
-      <ul>
-        {% for movie in movies %}
-        <li>
-          <a href="{{ url_for('views.movie_details', movie_id=movie.id) }}"
-          >{{ movie.title }}</a
-          >
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-
-    <div class="container-box">
-      <h2>Directors</h2>
-      <ul>
-        {% for director in directors %}
-        <li>
-          <span>
-            <a
-              href="{{ url_for('views.movies_by_director', director_id=director.id) }}"
-              >{{ director.name }}</a
-            >
-          </span>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-
-    <div class="container-box">
-      <h2>Genres</h2>
-      <ul>
-        {% for genre in genres %}
-        <li>
-          <span>
-            <a
-            href="{{ url_for('views.movies_by_genre', genre_id=genre.id) }}"
-            class="genre-title"
-            >{{ genre.name }}</a
-            >
-          </span>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-
-  </div>
+<div class="title-box">
+  <h1 class="title-text">{{ config.get('TITLE') }}</h1>
+  <p class="title-subtitle">
+    Discover the Cinematic Universe: Explore Movies, Directors, and Genres on
+    IMDb
+  </p>
 </div>
 
 {% endblock %}

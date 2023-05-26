@@ -8,5 +8,6 @@ def load_extensions(app):
         ext = import_module(module_name)
         getattr(ext, factory)(app)
 
+
 def init_app(app, **config):
     FlaskDynaconf(app, **config)

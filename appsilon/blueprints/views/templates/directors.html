@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block title %}{{ config.get('TITLE') }}{% endblock %} {% block content %}
+
+<div class="container-box">
+  <h1>Directors</h1>
+  <ul>
+    {% for director in directors %}
+    <p>
+      <span class="star-bullet">&#9733;</span>
+      <a
+        href="{{ url_for('views.movies_by_director', director_id=director.id) }}"
+        >{{ director.name }}</a
+      >
+    </p>
+    {% endfor %}
+  </ul>
+</div>
+
+{% endblock %}

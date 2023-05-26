@@ -1,20 +1,35 @@
-{% extends 'base.html' %} {% block title %}{{ config.get('TITLE') }}{% endblock %}
-
-{% block content %}
+{% extends 'base.html' %} {% block title %}{{ config.get('TITLE') }}{% endblock %} {% block content %}
 
 <div class="container-box">
-  <h1>Movie Details</h1>
-  <h2>{{ movie.title }} - <a href="{{ movie.url }}"><span style="text-transform: uppercase">{{ movie.imdb }}</span></a></h2>
-  <h3>Directors</h3>
+  <h1>
+    {{ movie.title }} -
+    <a href="{{ movie.url }}"
+      ><span style="text-transform: uppercase">{{ movie.imdb }}</span></a
+    >
+  </h1>
+  <h2>Directors</h2>
   <ul>
     {% for director in directors %}
-    <li>{{ director.name }}</li>
+    <p>
+      <span class="star-bullet">&#9733;</span
+      ><a
+        href="{{ url_for('views.movies_by_director', director_id=director.id) }}"
+        >{{ director.name }}</a
+      >
+    </p>
     {% endfor %}
   </ul>
-  <h3>Genres</h3>
+  <h2>Genres</h2>
   <ul>
     {% for genre in genres %}
-    <li>{{ genre.name }}</li>
+    <p class="genre-title">
+      <span class="star-bullet">&#9733;</span
+      ><a
+        href="{{ url_for('views.movies_by_genre', genre_id=genre.id) }}"
+        class="genre-title"
+        >{{ genre.name }}</a
+      >
+    </p>
     {% endfor %}
   </ul>
 </div>

@@ -1,6 +1,7 @@
 from typing import List, Dict
 from SPARQLWrapper import SPARQLWrapper, JSON
 
+
 class WikiDataFetcher:
     def __init__(self, query: str):
         self.endpoint_url = "https://query.wikidata.org/sparql"
@@ -21,5 +22,3 @@ class WikiDataFetcher:
         results = self.sparql.queryAndConvert()["results"]["bindings"]
         results = self._json_to_dict(results)
         return results
-
-

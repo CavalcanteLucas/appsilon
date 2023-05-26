@@ -23,6 +23,27 @@ def index():
     return render_template("index.html", **context)
 
 
+def movies():
+    context = {
+        "movies": get_movies(),
+    }
+    return render_template("movies.html", **context)
+
+
+def directors():
+    context = {
+        "directors": get_directors(),
+    }
+    return render_template("directors.html", **context)
+
+
+def genres():
+    context = {
+        "genres": get_genres(),
+    }
+    return render_template("genres.html", **context)
+
+
 def movies_by_director(director_id):
     context = {
         "director": get_director_by_id(director_id),

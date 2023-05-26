@@ -1,8 +1,25 @@
 <!-- base.html -->
 <!DOCTYPE html>
 <html lang="en">
-  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}" />
-  <link rel="stylesheet" type="text/css" href= "{{ url_for('static', filename='style.css') }}" />
+  <link
+    rel="icon"
+    type="image/x-icon"
+    href="{{ url_for('static', filename='favicon.ico') }}"
+  />
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="{{ url_for('static', filename='style.css') }}"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Limelight"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,9 +29,35 @@
     <!-- Common Navbar -->
     <nav>
       <a href="/">Home</a>
+      <span class="star-icon">&#9733;</span>
+      <a href="{{ url_for('views.movies') }}">Movies</a>
+      <span class="star-icon">&#9733;</span>
+      <a href="{{ url_for('views.directors') }}">Directors</a>
+      <span class="star-icon">&#9733;</span>
+      <a href="{{ url_for('views.genres') }}">Genres</a>
     </nav>
 
     <!-- Content specific to each page -->
     {% block content %} {% endblock %}
   </body>
+  <footer>
+    <div class="footer-content">
+      <p>
+        <small>
+          &copy; 2023 Designed and developed by
+          <a href="https://github.com/your-github-username"
+            ><i class="fab fa-github"></i
+          ></a>
+          Lucas Cavalcante
+        </small>
+      </p>
+    </div>
+  </footer>
 </html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const genresContainer = document.getElementById("genres-container");
+    genresContainer.scrollTop = 0;
+  });
+</script>
