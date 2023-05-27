@@ -3,5 +3,5 @@ make setup-db
 ```
 
 ```
-flask run
+make run
 ```

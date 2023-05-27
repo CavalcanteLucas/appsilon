@@ -1,5 +1,4 @@
 from importlib import import_module
-from dynaconf import FlaskDynaconf
 
 
 def load_extensions(app):
@@ -9,5 +8,5 @@ def load_extensions(app):
         getattr(ext, factory)(app)
 
 
-def init_app(app, **config):
-    FlaskDynaconf(app, **config)
+def init_app(app, config_class):
+    app.config.from_object(config_class)
