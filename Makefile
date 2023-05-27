@@ -1,3 +1,6 @@
+setup:
+	pip install -r requirements.txt
+
 drop-db:
 	flask drop-db
 
@@ -14,6 +17,12 @@ build-db:
 
 run:
 	gunicorn "appsilon.app:create_app()" -b 0.0.0.0:8000
+
+docker-setup-db-and-run:
+	REBUILD_DB=true docker-compose up --build
+
+docker-run:
+	docker-compose up
 
 test:
 	pytest tests -v

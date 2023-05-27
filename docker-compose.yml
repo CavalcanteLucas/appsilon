@@ -12,12 +12,12 @@ services:
       - DB_NAME=postgres
       - DB_HOST=db
       - DB_PORT=5433
+      - REBUILD_DB=false
     ports:
       - "8000:8000"
     depends_on:
       - db
-    command: >
-      bash -c "make run"
+    command: sh -c 'if [ "$REBUILD_DB" = "true" ]; then make build-db && make run; else make run; fi'
 
   db:
     image: postgres:latest
