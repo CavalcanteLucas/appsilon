@@ -11,3 +11,5 @@ def create_app(config_class=Config):
     configuration.load_extensions(app)
 
     return app
+
+app = create_app()
