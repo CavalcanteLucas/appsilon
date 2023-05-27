@@ -2,6 +2,8 @@
 
 Discover the Cinematic Universe: Explore Movies, Directors, and Genres on IMDb
 
+Check out the application live at https://appsilon-cavalcantelucas.vercel.app
+
 ## Running the project
 
 ### Locally
