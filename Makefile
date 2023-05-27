@@ -26,5 +26,5 @@ docker-run:
 
 test:
 	pytest tests -v
-	coverage report --omit="appsilon/ext/commands.py"
+	coverage report --omit="appsilon/app.py","appsilon/ext/commands.py"
 	coverage html
