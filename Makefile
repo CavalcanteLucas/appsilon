@@ -13,4 +13,9 @@ build-db:
 	make -s populate-db
 
 run:
-	flask run
+	gunicorn "appsilon.app:create_app()" -b 0.0.0.0:8000
+
+test:
+	pytest tests -v
+	coverage report --omit="appsilon/ext/commands.py"
+	coverage html

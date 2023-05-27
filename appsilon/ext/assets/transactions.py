@@ -9,27 +9,27 @@ from appsilon.models import (
 
 
 def get_movies(page=1, per_page=10):
-    return Movie.query.paginate(page=page, per_page=per_page, error_out=False)
+    return db.session.query(Movie).paginate(page=page, per_page=per_page, error_out=False)
 
 
 def get_directors(page=1, per_page=10):
-    return Director.query.paginate(page=page, per_page=per_page, error_out=False)
+    return db.session.query(Director).paginate(page=page, per_page=per_page, error_out=False)
 
 
 def get_genres(page=1, per_page=10):
-    return Genre.query.paginate(page=page, per_page=per_page, error_out=False)
+    return db.session.query(Genre).paginate(page=page, per_page=per_page, error_out=False)
 
 
 def get_movie_by_id(movie_id):
-    return Movie.query.get(movie_id)
+    return db.session.get(Movie, movie_id)
 
 
 def get_director_by_id(director_id):
-    return Director.query.get(director_id)
+    return db.session.get(Director, director_id)
 
 
 def get_genre_by_id(genre_id):
-    return Genre.query.get(genre_id)
+    return db.session.get(Genre, genre_id)
 
 
 def get_movies_by_director(director_id):

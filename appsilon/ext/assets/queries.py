@@ -16,5 +16,5 @@ class Queries(Enum):
 
             SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
         }
-        LIMIT 10
+        LIMIT 100
     """
